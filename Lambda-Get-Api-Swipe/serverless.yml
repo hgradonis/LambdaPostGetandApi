@@ -1,0 +1,21 @@
+
+service: lambda-get-api-swipe
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-2
+  profile: UserServerLess #User created with IAM  in AWS(6 permissions) - myselft count aws hgradonis
+  lambdaHashingVersion: 20201221
+
+
+
+functions:
+  myFuncGetSwapi:
+    handler: handler.myFuncGetSwapi
+    events:
+    - http:
+          path:    GetSwapi
+          method:  get
+          cors:    true
